@@ -1,15 +1,15 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hamberger_app/categories.dart';
+import 'package:hamberger_app/hamberger_list.dart';
 import 'package:hamberger_app/header.dart';
 
 void main() {
   runApp(
-    // const MyApp(),
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(),
-    ),
+    const MyApp(),
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => const MyApp(),
+    // ),
   );
 }
 
@@ -19,11 +19,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+      // useInheritedMediaQuery: true,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          primaryColor: Colors.teal,
+          cardColor: Colors.white,
           appBarTheme: const AppBarTheme(color: Colors.teal, centerTitle: true),
           bottomAppBarColor: Colors.teal,
           floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -65,6 +67,8 @@ class _HambergerState extends State<Hamberger> {
               ],
             ),
             const Header(),
+            const Categories(),
+            const HambergerList(),
             SliverList(
                 delegate: SliverChildListDelegate([
               Container(
@@ -75,12 +79,16 @@ class _HambergerState extends State<Hamberger> {
             SliverList(delegate: SliverChildListDelegate([])),
           ],
         ),
+
+        //floting
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: const Icon(Icons.home),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         extendBody: true,
+
+        //Bottom Bar
         bottomNavigationBar: ClipRRect(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(45)),
           child: Container(

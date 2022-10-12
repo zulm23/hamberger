@@ -56,10 +56,10 @@ class _HeaderState extends State<Header> {
                             decoration: BoxDecoration(
                                 color: Colors.teal.shade100,
                                 borderRadius: BorderRadius.circular(20)),
-                            child: const Text(
+                            child: Text(
                               'GOLD Member',
                               style: TextStyle(
-                                  color: Colors.black54,
+                                  color: Colors.yellow[200],
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12),
                             ),
